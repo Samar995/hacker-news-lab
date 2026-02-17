@@ -1,19 +1,20 @@
 /* Each story has:
- objectID -> unique id (used as key)
- title -> article title
- url -> link to the article
- author -> who posted it
- points -> score
- num_comments -> number of comments
+   objectID -> unique id (used as key)
+   title -> article title
+   url -> link to the article
+   author -> who posted it
+   points -> score
+   num_comments -> number of comments
 
- objectID is used as the key because it is unique
- This structure is similar to real API data */
+   objectID is used as the key because it is unique
+   This structure is similar to real API data
+*/
 
 const stories = [
   {
     objectID: "1",
     title: "story1",
-    url: "http:/story1.tn",
+    url: "http://story1.tn",
     author: "writer1",
     points: 120,
     num_comments: 30,
@@ -21,14 +22,14 @@ const stories = [
   {
     objectID: "2",
     title: "story2",
-    url: "http:/secondstory.com",
+    url: "http://secondstory.com",
     author: "second_writer",
     points: 98,
     num_comments: 16,
   },
 ];
 
-function App() {
+function List() {
   return (
     <div>
       {stories.map((item) => {
@@ -50,13 +51,39 @@ function App() {
   );
 }
 
+function Search() {
+  return (
+    <div>
+      <label>Search: </label>
+      <input type="text" />
+    </div>
+  );
+}
+
+function Header() {
+  return <h1>Hacker News</h1>;
+}
+
+function App() {
+  return (
+    <div>
+      <Header />
+      <Search />
+      <List />
+    </div>
+  );
+}
+
 export default App;
 
 /*
-map() is used because it returns a new array that React can render.
+App is responsible for organizing the page.
 
-objectID is the correct key because it uniquely identifies each story.
+List is responsible for rendering the stories.
 
-Later, this fake data will be replaced by data coming from the
-Hacker News API.
+Search is responsible for displaying the search input.
+
+This structure is cleaner because each component has one job
+and the App component is easier to read.
 */
+
