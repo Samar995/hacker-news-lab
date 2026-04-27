@@ -51,20 +51,21 @@ function List() {
   );
 }
 
-function Search() {
+const Search = () => {
+  const handleChange = (event) => {
+    console.log(event);
+  };
   return (
     <div>
       <label>Search: </label>
-      <input type="text" />
+      <input type="text" onChange={handleChange} />
     </div>
   );
-}
+};
 
-function Header() {
-  return <h1>Hacker News</h1>;
-}
+const Header = () => <h1>Hacker News</h1>;
 
-function App() {
+const App = () => {
   return (
     <div>
       <Header />
